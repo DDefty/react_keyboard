@@ -2,11 +2,11 @@ import React from 'react';
 
 export class App extends React.Component {
   state = {
-    lastClicked: null,
+    pressedKey: null,
   };
 
   handleKeyUp = (event: KeyboardEvent) => {
-    this.setState({ lastClicked: event.key });
+    this.setState({ pressedKey: event.key });
   };
 
   componentDidMount() {
@@ -20,11 +20,11 @@ export class App extends React.Component {
   render() {
     return (
       <div className="App">
-        {this.state.lastClicked === null ? (
+        {this.state.pressedKey === null ? (
           <p className="App__message">Nothing was pressed yet</p>
         ) : (
           <p className="App__message">
-            The last pressed key is [{this.state.lastClicked}]
+            The last pressed key is {this.state.pressedKey}
           </p>
         )}
       </div>
